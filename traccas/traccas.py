@@ -41,7 +41,7 @@ class CasLoginModule(LoginModule):
 
     # Internal methods
     def _do_login(self, req):
-        if not req.remote_user:
+        if not req.authname or req.authname == 'anonymous':
             req.redirect(self.cas.login_url(req.abs_href.login()))
         super(CasLoginModule, self)._do_login(req)
 
