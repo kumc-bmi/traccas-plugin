@@ -1,0 +1,38 @@
+Notes
+=====
+
+This is a modified login plugin to use a `JA-SIG CAS server`__ as the
+back-end. 
+
+__ http://www.ja-sig.org/products/cas/
+
+Configuration
+=============
+
+Options in the ``[cas]`` section:
+
+``server``: **required** 
+    The base URL of the CAS server.
+``login_path``:
+    Relative path to the login service. Defaults to ``/login``.
+``logout_path``:
+    Relative path to the logout service. Defaults to ``/logout``.
+``validate_path``:
+    Relative path to the validation service. Defaults to ``/validate``.
+
+To enable the plugin::
+
+    [components]
+    traccas.* = enabled
+    trac.web.auth.LoginModule = disabled
+
+.. note::
+    Even if installing locally, you must disable the default LoginModule.
+
+Example
+=======
+
+An example configuration::
+
+    [cas]
+    server = https://login.example.com/cas
